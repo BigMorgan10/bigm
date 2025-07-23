@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Big M 모건</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #0a0a0a;
+      color: #f5f5f5;
+    }
+    header {
+      background-color: #111;
+      padding: 2rem;
+      text-align: center;
+      border-bottom: 1px solid #333;
+    }
+    header h1 {
+      font-size: 2.5rem;
+      margin: 0;
+      letter-spacing: 2px;
+    }
+    nav {
+      text-align: center;
+      background-color: #0f0f0f;
+      padding: 1rem;
+    }
+    nav a {
+      color: #ccc;
+      text-decoration: none;
+      margin: 0 1rem;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: #fff;
+    }
+    .section {
+      padding: 3rem 2rem;
+      max-width: 900px;
+      margin: auto;
+    }
+    .section h2 {
+      color: #e63946;
+      margin-bottom: 1rem;
+    }
+    .image-section {
+      text-align: center;
+      margin: 2rem 0;
+    }
+    .image-section img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 1rem;
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+    }
+    audio {
+      display: block;
+      margin: 2rem auto;
+      width: 100%;
+      max-width: 600px;
+    }
+    .dynamic-blog {
+      background-color: #1a1a1a;
+      padding: 2rem;
+      border-radius: 10px;
+      margin-top: 2rem;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
+    }
+    .dynamic-blog h3 {
+      color: #fbbf24;
+    }
+    .dynamic-blog p {
+      margin: 0.5rem 0;
+    }
+    footer {
+      background-color: #111;
+      color: #777;
+      text-align: center;
+      padding: 2rem 1rem;
+      border-top: 1px solid #333;
+    }
+  </style>
+  <script>
+    function addPost() {
+      const title = prompt("Titre de l'article :");
+      const content = prompt("Contenu :");
+      if (title && content) {
+        const section = document.getElementById("blog-posts");
+        const article = document.createElement("article");
+        article.className = "dynamic-blog";
+        article.innerHTML = `<h3>${title}</h3><p>${content}</p>`;
+        section.appendChild(article);
+      }
+    }
+  </script>
+</head>
+<body>
+  <header>
+    <h1>Big M 모건</h1>
+    <p>Art • Réflexion • Vérité</p>
+  </header>
+
+  <nav>
+    <a href="#about">À propos</a>
+    <a href="#art">Mon Art</a>
+    <a href="#info">Infos</a>
+    <a href="#blog">Blog</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <section id="about" class="section">
+    <h2>À propos de moi</h2>
+    <p>L’or c’est pas ce que j’porte, c’est ce que j’suis.</p>
+    <p>J’brille pas pour impressionner — j’brille pour inspirer.</p>
+    <p>Montre en diamant, cœur en braise. Le style c’est une armure, mais le feu, il est dedans.</p>
+    <p><strong>JE SUIS FAIT D’ART, PAS DE HASARD</strong></p>
+    <p>On m’a pas fabriqué dans un moule. J’suis né du feu, du doute, du silence.</p>
+    <p>Je suis pas un influenceur fabriqué. Je suis un créateur cabossé, qui transforme ses cicatrices en lumière.</p>
+    <p>L’art m’a pas demandé la permission. Il m’a sauvé. Il m’a sculpté.</p>
+    <p>Ce que je crée, c’est pas pour être vu. C’est pour être ressenti.</p>
+    <p>Si toi aussi t’as cette flamme qu’on peut pas expliquer… Alors t’es pas là par hasard.</p>
+  </section>
+
+  <section class="image-section">
+    <img src="media/photo.png" alt="Big M image">
+  </section>
+
+  <section id="art" class="section">
+    <h2>Mon Art</h2>
+    <p>Musique, textes, visuels... Chaque œuvre est une pièce de mon âme.</p>
+    <audio controls>
+      <source src="media/audio.mp3" type="audio/mpeg">
+      Ton navigateur ne supporte pas la lecture audio.
+    </audio>
+  </section>
+
+  <section id="info" class="section">
+    <h2>Informations & Réflexions</h2>
+    <p>Le monde est une scène de vérités cachées. Ici, je dévoile, j’analyse, je partage ce que les médias oublient. Du vécu, du réel, du ressenti.</p>
+  </section>
+
+  <section id="blog" class="section">
+    <h2>Blog vivant</h2>
+    <p>Partage de textes en feu. Clique pour ajouter ton ressenti du moment :</p>
+    <button onclick="addPost()">➕ Ajouter un post</button>
+    <div id="blog-posts"></div>
+  </section>
+
+  <section id="contact" class="section">
+    <h2>Contact</h2>
+    <p>📱 (242) 06 463 32 08</p>
+    <p>📧 morgunshted9@gmail.com</p>
+    <p>💎 Facebook : 24 carrats</p>
+    <p>💎 Instagram : <a href="https://instagram.com/iam24carrats" target="_blank">@iam24carrats</a></p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Big M 모건 — Tous droits réservés</p>
+  </footer>
+</body>
+</html>
