@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Big M 모건</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1 id="site-title">Big M 모건</h1>
+    <nav>
+      <ul id="menu">
+        <li data-page="home">🏠 Accueil</li>
+        <li data-page="art">🎨 Mon Art</li>
+        <li data-page="about">👤 À propos</li>
+      </ul>
+      <select id="language-switcher">
+        <option value="fr">🇫🇷 Français</option>
+        <option value="en">🇬🇧 English</option>
+      </select>
+      <button id="theme-toggle">🎭 Changer de thème</button>
+    </nav>
+  </header>
+
+  <main id="content">
+    <!-- Le contenu changera ici dynamiquement -->
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
+/* style.css */
+:root {
+  --bg: #111;
+  --text: #eee;
+  --accent: #5be3a7;
+}
+
+body.light {
+  --bg: #fff;
+  --text: #111;
+  --accent: #0077ff;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background: var(--accent);
+  padding: 1em;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 2em;
+  padding: 0;
+}
+
+nav li {
+  cursor: pointer;
+}
+
+select, button {
+  margin-left: 1em;
+}
+// script.js
+
+const content = document.getElementById("content");
+const menuItems = document.querySelectorAll("#menu li");
+const languageSwitcher = document.getElementById("language-switcher");
+const themeToggle = document.getElementById("theme-toggle");
+
+let currentLang = "fr";
+
+const translations = {
+  fr: {
+    home: "Bienvenue sur mon univers sombre et élégant.",
+    art: "Voici une galerie de mes créations mystérieuses.",
+    about: "Je suis Morgan, artiste de l’ombre et de la lumière.",
+  },
+  en: {
+    home: "Welcome to my dark and elegant universe.",
+    art: "Here’s a gallery of my mysterious creations.",
+    about: "I’m Morgan, artist of shadow and light.",
+  },
+};
+
+function loadPage(page) {
+  content.textContent = translations[currentLang][page];
+}
+
+menuItems.forEach(item => {
+  item.addEventListener("click", () => {
+    const page = item.dataset.page;
+    loadPage(page);
+  });
+});
+
+languageSwitcher.addEventListener("change", () => {
+  currentLang = languageSwitcher.value;
+  const activePage = document.querySelector("#menu li.active")?.dataset.page || "home";
+  loadPage(activePage);
+});
+
+themeToggle.addEventListener("click", () => {
+  document.body.classList.toggle("light");
+});
+
+// Charger la page par défaut
+loadPage("home");
